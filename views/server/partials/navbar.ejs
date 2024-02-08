@@ -1,0 +1,38 @@
+<nav id="admin-navbar">
+  <div class="admin-navbar--container">
+    <a href="/admin/home" class="admin-navbar--logo"></a>
+    <ul class="admin-navbar--links">
+      <li class="navbar-link--home"><a href="/admin/home">Inicio</a></li>
+      <li class="navbar-link--news"><a href="/admin/news">Novedades</a></li>
+      <li class="navbar-link--properties">
+        <a href="/admin/properties">Propiedades</a>
+      </li>
+      <li class="navbar-link--highlights">
+        <a href="/admin/highlights">Destacados</a>
+      </li>
+      <li class="navbar-link--logout">
+        <a href="/admin/logout">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="popup-container" >
+  <div id="popup-done">
+    <div class="popup__icon"></div>
+    <p class="popup__text">Se envió correctamente</p>
+    <button class="popup__button">Ok</button>
+  </div>
+  
+  <div id="popup-error">
+    <div class="popup__icon"></div>
+    <p class="popup__text">Debes completar 
+      un campo obligatorio : <span id="error__message"></span></p>
+    <button class="popup__button">Ok</button>
+  </div>
+
+  <div id="popup-loading">
+    <div class="popup__icon"></div>
+    <p class="popup__text">Aguarde un momento</p>
+  </div>
+</div>

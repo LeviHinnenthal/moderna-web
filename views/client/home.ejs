@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') -%>
+  <link rel="stylesheet" href="/css/client/home.css" type="text/css" />
+  <body>
+    <%- include('../partials/navbar') -%>
+
+    <div class="home-container">
+      <% banners.mobile.map(img => { %>
+      <div
+        data-image="<%= img.image_url %>"
+        class="data-mobile__src"
+        style="display: none"
+      ></div>
+      <% })%> <% banners.desktop.map(img => { %>
+      <div
+        data-image="<%= img.image_url %>"
+        class="data-desktop__src"
+        style="display: none"
+      ></div>
+      <% })%>
+      <header class="home--header">
+        <div class="home--header--images">
+          <img src="" alt="home" class="home--header--images-img" />
+        </div>
+        <div class="home--header--dots"></div>
+        <div class="home--header--title">
+          <!-- <h3>El hogar que soñaste.</h3> -->
+        </div>
+      </header>
+      <%- include('../partials/filters') -%>
+      <section class="home--featured-popierties">
+        <h3>Propiedades Destacadas</h3>
+        <div class="featured-popierties--container">
+          <% if(properties.length > 0){%> <% properties.map((property, i) => {
+          %> <% if(i <= 3) {%>
+          <div class="featured-propierties--card">
+            <a href="/property/<%= property.id%>" class="featured--card--link">
+              <div class="featured-propierties--card--img">
+                <div
+                  data-image="<%= property.primary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+                <div
+                  data-image="<%= property.secondary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+
+                <img
+                  src="<%= property.primary_img %>"
+                  alt="Imagen de propiedad"
+                />
+              </div>
+            </a>
+            <div class="featured-propierties--card--content">
+              <% if(property.sell_or_rent === "rent") {%>
+              <span class="feature-type-1">Alquiler</span>
+              <p id="card--cost">$<%= property.price%></p>
+              <% } else {%>
+              <span class="feature-type-2">Venta</span>
+              <p id="card--cost">US$<%= property.price%></p>
+              <% } %> <% if(property.code) {%>
+              <span class="feature-code">cod.<%= property.code%></span>
+              <% } %>
+              <p id="card--title"><%= property.name%></p>
+              <p id="card--direction"><%= property.ubication_name%></p>
+              <div class="card--info">
+                <p id="card--rooms"><%= property.room%> Dormitorios</p>
+                <p id="card--bathrooms"><%= property.bathroom%> Baños</p>
+                <p id="card--size"><%= property.size%> m2.</p>
+              </div>
+            </div>
+            <div class="card--see-details">
+              <a href="/property/<%= property.id%>">
+                <span>Ver detalles</span>
+              </a>
+            </div>
+          </div>
+          <% }}) %>
+        </div>
+        <div class="featured-popierties--load-more">
+          <span
+            id="properties-home-more"
+            data-filters=""
+            data-skip="4"
+            data-ids="<% properties.map((property, i) => {if(i <= 3) {
+          %><%=property.id%>,<%}})%>"
+            >Cargar Más</span
+          >
+        </div>
+        <% } else { %>
+        <div class="featured-popierties--load-more">
+          <span>Próximamente más propiedades disponibles</span>
+        </div>
+        <%}%>
+      </section>
+      <section class="home--services-info">
+        <h3>¿Qué Ofrecemos?</h3>
+        <p>
+          Somos una inmobiliaria moderna, enfocada en brindar un servicio
+          responsable, con transparencia, cercanía y confianza.
+        </p>
+        <div class="home--services-info--container">
+          <div class="info--card" id="bienes-raices">
+            <p>Bienes Raices</p>
+            <small
+              >Sabemos lo importante que es encontrar la casa perfecta y
+              convertirla en un hogar, por eso queremos apoyarte en este camino.
+            </small>
+          </div>
+          <div class="info--card" id="asesoria">
+            <p>Asesoría</p>
+            <small
+              >Te asesoramos en todo momento, desde el inicio, pasando por la
+              concreción de la operación, hasta la firma de la escritura.
+            </small>
+          </div>
+          <div class="info--card" id="tasacion">
+            <p>Tasación</p>
+            <small
+              >Realizamos tasaciones inmobiliarias para brindarte un informe
+              completo y acertado para tu propiedad.
+            </small>
+          </div>
+          <div class="info--card" id="administración">
+            <p class="seguros">Seguros</p>
+            <small class="seguros-text"
+              >Contratación del seguro perfecto para tus necesidades; garantía
+              de alquiler, vehículos, residencia, empresa, vida.
+            </small>
+          </div>
+        </div>
+      </section>
+      <section class="home--about-us">
+        <div class="about-us--container">
+          <div class="about-us-img-container">
+            <img src="/assets/images/gold-gb.png" alt="" />
+            <p class="about-us--title-img">
+              TE ASESORAMOS <span>EN TODO MOMENTO.</span>
+            </p>
+          </div>
+          <div class="home--about-us--content">
+            <p class="about-us--subtitle">Sobre Nosotros</p>
+            <p class="about-us--title">
+              Si estas buscando una propiedad, te acompañamos en todo momento.
+            </p>
+            <div class="about-us--description">
+              <p>
+                Somos una inmobiliaria moderna, enfocada en brindar un servicio
+                responsable, con transparencia, cercanía y confianza.
+              </p>
+              <p>
+                Nuestra misión es aportar valor y trabajar en las necesidades
+                específicas de nuestros clientes. Agilizar los procesos de
+                intermediación en la compra, venta y alquiler de inmuebles.
+              </p>
+            </div>
+            <div class="about-us--buttons">
+              <div class="about-us--more">
+                <a href="/about">Ver más</a>
+              </div>
+              <div class="about-us--contact">
+                <a
+                  href="https://wa.me/59898648914?text=Hola%21%20Te%20escribo%20de%20la%20web%20con%20la%20siguiente%20consulta%3A%20"
+                  target="_blank"
+                >
+                  <span>Contáctanos</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home--newsletter">
+        <div class="home--newsletter--container">
+          <h3 class="newsletter-title">Novedades</h3>
+          <p class="newsletter-subtitle">Pensamos estos artículos para vos</p>
+          <div class="newsletter-card--container">
+            <% newsletters.map((news, i) => { %> <% if(i <= 2) {%>
+            <div class="newsletter-card">
+              <img src="<%= news.principal_img %>" alt="Imagen de novedad" />
+              <p class="newsletter-card--title"><%= news.title %></p>
+              <div class="newsletter-card--content">
+                <small><%= news.description %></small>
+              </div>
+
+              <div class="newsletter-card--more">
+                <a href="/newsletter/<%= news.id %>">Leer más</a>
+              </div>
+            </div>
+            <% }}) %>
+            <span id="contact"></span>
+          </div>
+        </div>
+      </section>
+      <section class="home--contact">
+        <div class="contact--container">
+          <h3 class="contact--title">Comunicate con nosotros</h3>
+          <p>Dejanos tus datos y nos contactaremos a la brevedad.</p>
+          <div class="form--contact">
+            <div class="form--input--contact">
+              <input
+                type="text"
+                name="name"
+                id="form--name"
+                placeholder="Nombre*"
+              />
+            </div>
+            <div class="form--input--contact">
+              <input
+                type="text"
+                name="email"
+                id="form--email"
+                placeholder="Email*"
+              />
+            </div>
+            <div class="form--input--contact">
+              <input
+                type="text"
+                name="phone"
+                id="form--phone"
+                placeholder="Telefono"
+              />
+            </div>
+            <div class="form--input--contact">
+              <textarea
+                name="message"
+                id="form--message"
+                cols="30"
+                rows="10"
+                placeholder="Mensaje*"
+              ></textarea>
+            </div>
+            <div class="form--submit">Enviar</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <%- include('../partials/newsletter') -%> <%- include('../partials/footer')
+    -%> <%- include('../partials/scripts') -%>
+  </body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/editProperty.css" type="text/css" />
+  <body>
+    <main id="admin-edit-property">
+      <%- include('./partials/navbar') -%>
+      <div class="admin-edit-property--container">
+        <%- include('./partials/header') -%>
+        <section class="admin-edit-property--section">
+          <section class="admin-edit-property--titles">
+            <h3>Edita una propiedad</h3>
+            <p>Edita los siguientes datos</p>
+          </section>
+          <section class="admin-edit-property--form-1" id="property-data">
+            <div class="admin-edit-property--form-group property-title">
+              <p>Nombre de la Propiedad</p>
+              <input
+                type="text"
+                placeholder="Ej: Apartamento con vista al mar"
+                value="<%= property.name %>"
+                id="property-name"
+              />
+            </div>
+            <div class="admin-edit-property--form-group property-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="property-description"
+              >
+<%= property.description %>
+              </textarea>
+            </div>
+            <div class="admin-edit-property--form-group property-sellrent">
+              <p>¿Se vende o se alquila?</p>
+              <div class="property-sellrent-btn">
+                <% if(property.sell_or_rent === "rent"){%>
+                <div class="selected" id="property-rent" data-type="rent">
+                  Alquiler
+                </div>
+                <div class="" id="property-sell" data-type="sell">Venta</div>
+                <%}else{%>
+                <div class="" id="property-rent" data-type="rent">Alquiler</div>
+                <div class="selected" id="property-sell" data-type="sell">
+                  Venta
+                </div>
+                <%}%>
+              </div>
+            </div>
+            <div class="admin-edit-property--form-group property-price">
+              <p>Precio</p>
+              <input
+                type="number"
+                placeholder="$"
+                id="property-price"
+                value="<%=property.price%>"
+              />
+            </div>
+            <div class="admin-edit-property--form-group property-bathroom">
+              <p>Baños</p>
+              <input
+                type="number"
+                placeholder="2"
+                id="property-bathroom"
+                value="<%=property.bathroom%>"
+              />
+              <div class="input-number">
+                <div class="up" id="bathroom-up"></div>
+                <div class="down" id="bathroom-down"></div>
+              </div>
+            </div>
+            <div class="admin-edit-property--form-group property-room">
+              <p>Dormitorios</p>
+              <input
+                type="number"
+                placeholder="2"
+                id="property-room"
+                value="<%=property.room%>"
+              />
+              <div class="input-number">
+                <div class="up" id="room-up"></div>
+                <div class="down" id="room-down"></div>
+              </div>
+            </div>
+            <div class="admin-edit-property--form-group property-size">
+              <p>Metros</p>
+              <input
+                type="number"
+                placeholder="200"
+                id="property-size"
+                value="<%=property.size%>"
+              />
+              <div class="input-number">
+                <div class="up" id="size-up"></div>
+                <div class="down" id="size-down"></div>
+              </div>
+            </div>
+            <div class="admin-edit-property--form-group property-code">
+              <p>Código</p>
+              <input
+                type="text"
+                placeholder="N/A"
+                id="property-code"
+                value="<%=property.code%>"
+              />
+            </div>
+            <div class="admin-edit-property--form-group property-type">
+              <p>Tipo de propiedad</p>
+              <select name="type-property" id="property-type">
+                <%if (property.type === "apartment"){ %>
+                <option value="apartment">Selec Apart</option>
+                <%} else if (property.type === "studio_apartment") {%>
+                <option value="studio_apartment">Selec Monoamb</option>
+                <%} else if (property.type === "house") {%>
+                <option value="house">Selec Casa</option>
+                <%} else if (property.type === "ground") {%>
+                <option value="ground">Select Terre</option>
+                <%}%>
+                <option value="apartment">Apartamento</option>
+                <option value="studio_apartment">Monoambiente</option>
+                <option value="house">Casa</option>
+                <option value="ground">Terreno</option>
+              </select>
+            </div>
+            <div
+              class="admin-edit-property--form-group property-characteristics"
+            >
+              <p>Características</p>
+              <textarea
+                name="caracteristicas"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Las caracteristicas se mostrarán en formato de lista. Seleccione palabras separadas por un enter."
+                id="property-features"
+              >
+<%let text = ""; property.property_characteristics.forEach(char => {
+                text = char+" "
+              }) %><%=text%></textarea
+              >
+            </div>
+            <div class="admin-edit-property--form-group property-video">
+              <p>Subir videos de Youtube</p>
+              <input
+                type="text"
+                placeholder="url del video"
+                id="property-video-url"
+                value="<%= property.video_url%>"
+              />
+              <div id="property-video-btn"><p>Agregar</p></div>
+            </div>
+            <div
+              class="admin-edit-property--form-group property-highlight-wrapper"
+            >
+              <p>Propiedad Destacada</p>
+              <div class="property-highlight">
+                <p>Agregar a destacados</p>
+                <%if (property.highlight === false){ %>
+                <div
+                  id="property-highlight"
+                  data-highlight="<%= property.highlight%>"
+                ></div>
+                <%} else {%>
+                <div
+                  id="property-highlight"
+                  class="selected-hightlight"
+                  data-highlight="<%= property.highlight%>"
+                ></div>
+                <%}%>
+              </div>
+            </div>
+          </section>
+          <section class="admin-edit-property--form-2" id="attractions-area">
+            <div class="admin-edit-property--form-group property-direction">
+              <p>Ubicación</p>
+              <input
+                type="text"
+                id="property-direction-edit"
+                placeholder="<%= property.ubication_name%>"
+              />
+            </div>
+            <div class="admin-edit-property--form-group property-department">
+              <p>Departamento</p>
+              <select name="property-department" id="property-department-edit">
+                <option value="<%= property.department%>">
+                  Selec. <%= property.department%>
+                </option>
+                <option value="artigas">Artigas</option>
+                <option value="canelones">Canelones</option>
+                <option value="cerro_largo">Cerro Largo</option>
+                <option value="colonia">Colonia</option>
+                <option value="flores">Flores</option>
+                <option value="florida">Florida</option>
+                <option value="lavalleja">Lavalleja</option>
+                <option value="maldonado">Maldonado</option>
+                <option value="montevideo">Montevideo</option>
+                <option value="paysandu">Paysandu</option>
+                <option value="salto">Salto</option>
+                <option value="rivera">Rivera</option>
+                <option value="treinta_y_tres">Treinta y Tres</option>
+                <option value="tacuarembo">Tacuarembo</option>
+                <option value="durazno">Durazno</option>
+                <option value="rio_negro">Rio Negro</option>
+                <option value="rocha">Rocha</option>
+                <option value="san_jose">San Jose</option>
+                <option value="soriano">Soriano</option>
+              </select>
+            </div>
+            <div class="admin-edit-property--form-group property-tags">
+              <p>Etiquetas</p>
+              <input
+                type="text"
+                placeholder="casa, iluminada, etc"
+                name="type-property"
+                id="property-tags"
+                value="<%= property.attractions_area%>"
+              />
+            </div>
+            <div class="admin-edit-property--form-group area-features">
+              <p>Atractivos de la zona</p>
+              <textarea
+                name="area-features"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Atractivos"
+                id="area-features"
+              >
+<%= property.area_features %></textarea
+              >
+            </div>
+            <div class="admin-add-property--form-group property-images">
+              <p>Imágenes principales</p>
+              <div class="add-images-container">
+                <div class="add-property-images-list" id="sortable">
+                  <% property.images.forEach((img) => { %>
+                  <div class="new-property--img-container">
+                    <img class="new-property--image-list" src="<%= img %>" />
+                    <div
+                      class="new-property--img-delete-btn-edit property-color"
+                      data-name="<%= img%>"
+                      data-type="property"
+                      data-id="<%= property.id%>"
+                    >
+                      Borrar imagen
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+            <%if(property.attractions_images.length > 0) {%>
+            <div class="admin-add-property--form-group property-images-area">
+              <p>Imágenes del área</p>
+              <div class="add-images-container">
+                <div class="add-property-images-list">
+                  <% property.attractions_images.forEach((img) => { %>
+                  <div class="new-property--img-container">
+                    <img class="new-property--image-list" src="<%= img %>" />
+                    <div
+                      class="new-property--img-delete-btn-edit property-color"
+                      data-name="<%= img%>"
+                      data-type="area"
+                      data-id="<%= property.id%>"
+                    >
+                      Borrar imagen
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+            <%}%>
+          </section>
+          <% if (property.neighbors.length > 0) { %>
+          <section class="admin-edit-property--form-3">
+            <% property.neighbors.forEach(neighbor => {%>
+            <div class="neighbor-form">
+              <div class="admin-edit-property--form-group neighbor-name">
+                <p>Nombre del Vecino 1</p>
+                <input
+                  type="text"
+                  placeholder="Juan"
+                  class="neighbor-name-val"
+                  value="<%=property.neighbors[0].name%>"
+                />
+              </div>
+              <div class="admin-edit-property--form-group neighbor-sex">
+                <p>Seleccione el sexo</p>
+                <div class="neighbor-sex-btn">
+                  <div class="selected" id="neightbor-male" data-sex="male">
+                    Hombre
+                  </div>
+                  <div id="neightbor-female" data-sex="female">Mujer</div>
+                </div>
+              </div>
+              <div class="admin-edit-property--form-group neighbor-stars">
+                <p>Estrellas</p>
+                <input type="number" value="4" id="neighbor-stars" />
+                <div class="input-number">
+                  <div class="up" id="stars-up"></div>
+                  <div class="down" id="stars-down"></div>
+                </div>
+              </div>
+              <div class="admin-edit-property--form-group neighbor-review">
+                <p>Reseña</p>
+                <textarea
+                  name="descripcion"
+                  class=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Descripción"
+                ></textarea>
+              </div>
+            </div>
+            <%})%>
+            <!-- <div id="edit-new-neighbor-btn">Agregar otro vecino</div> -->
+          </section>
+          <% }%>
+        </section>
+
+        <% if (property.neighbors.length == 0) { %>
+        <div class="property-submit-edit no-neighbors">Guardar</div>
+        <% }else{%>
+        <div class="property-submit-edit">Guardar</div>
+        <% }%>
+      </div>
+    </main>
+    <!-- Google Maps -->
+    <script>
+      /* GOOGLE MAPS AUTOCMPLETE */
+      let autocomplete;
+      const data = {
+        area: "",
+        name: "",
+        lat: "",
+        lng: "",
+      };
+      window.initAutocomplete = function () {
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById("property-direction-edit"),
+          {
+            types: ["address"],
+            componentRestrictions: { country: ["UY"] },
+            fields: ["address_components", "geometry", "icon", "name"],
+          }
+        );
+
+        autocomplete.addListener("place_changed", onPlaceChanged);
+      };
+
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+
+        if (!place.geometry) {
+          document.getElementById("property-direction-edit").placeholder =
+            "Seleccione una dirección válida";
+        } else {
+          // get lat
+          let lat = place.geometry.location.lat();
+          // get lng
+          let lng = place.geometry.location.lng();
+          //get area
+          let area = place.address_components[3].short_name;
+
+          // console.log(place.address_components);
+
+          data.lat = `${lat}`;
+          data.lng = `${lng}`;
+          data.area = `${area}`;
+          data.name = place.name;
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzC2ORsuRz-J-M6cqXWwpJzYEHfHEmKZg&libraries=places&callback=initAutocomplete"
+    ></script>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

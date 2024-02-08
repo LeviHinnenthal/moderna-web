@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/addNews.css" type="text/css" />
+  <body>
+    <main id="admin__news">
+      <%- include('./partials/navbar') -%>
+      <section class="admin__news__container">
+        <%- include('./partials/header') -%>
+        <section class="admin__news__section">
+          <section class="admin__news__titles">
+            <h3>Agrega un Articulo</h3>
+            <p>Cargá la siguiente información</p>
+          </section>
+          <section class="admin__news__form-1">
+            <div class="admin-add-news__form-group news-title">
+              <p>Titulo del articulo</p>
+              <input
+                type="text"
+                placeholder="Ej: Apartamento con vista al mar"
+                id="news-name"
+              />
+            </div>
+            <div class="admin__news__active-inactive__btn">
+              <div class="btn-left">
+                <p>Publicar Autor</p>
+                <div class="btn-news-1 toggle-btn-inactive"></div>
+              </div>
+              <div class="btn-right">
+                <p>Activa</p>
+                <div class="btn-news-2 toggle-btn-active"></div>
+              </div>
+            </div>
+            <div class="admin-add-news__form-group news-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="property-description"
+              ></textarea>
+            </div>
+            <div class="admin-add-news__form-group news__principal__image principal">
+              <p>Imágen principal</p>
+              <div class="add__images_container">
+                <div class="add_news_image_principal">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="news_principal__img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-news__form-group news__text__image text">
+              <p>Imágen en texto</p>
+              <div class="add__images_container">
+                <div class="add_news_image_text">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="news_text__img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-news__form-group news-video">
+              <p>Subir videos de Youtube</p>
+              <input
+                type="text"
+                placeholder="url del video"
+                id="news-video-url"
+              />
+              <div id="news-video-btn"><p>Agregar</p></div>
+            </div>
+          </section>
+          <section class="admin__news__form-2">
+            <div class="admin-add-news__form-group news-sub1">
+              <p>Subtítulo 01</p>
+              <input type="text" placeholder="Escribe aquí" id="news-sub1" />
+            </div>
+            <div class="admin-add-news__form-group news-sub1-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub1-description"
+              ></textarea>
+            </div>
+            <div class="admin-add-news__form-group news-sub2">
+              <p>Subtítulo 02</p>
+              <input type="text" placeholder="Escribe aquí" id="news-sub2" />
+            </div>
+            <div class="admin-add-news__form-group news-sub2-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub2-description"
+              ></textarea>
+            </div>
+            <div class="admin-add-news__form-group news-sub3">
+              <p>Subtítulo 03</p>
+              <input type="text" placeholder="Escribe aquí" id="news-sub3" />
+            </div>
+            <div class="admin-add-news__form-group news-sub3-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub3-description"
+              ></textarea>
+            </div>
+            <div class="admin-add-news__form-group news-sub-images sub">
+              <p>Imágen en texto</p>
+              <div class="add__images_container">
+                <div class="add_news_image_sub">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="news_sub__img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <div class="news-submit">Guardar</div>
+      </section>
+    </main>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

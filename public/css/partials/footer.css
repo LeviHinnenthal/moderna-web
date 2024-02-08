@@ -1,0 +1,194 @@
+.footer {
+  height: 350px;
+  width: 100%;
+}
+.footer--container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer--title {
+  margin-top: 20px;
+  position: relative;
+  width: 183px;
+  height: 27px;
+  background-image: url("/assets/icons/logo-name-moderna.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+.footer--title::after {
+  content: "";
+  position: absolute;
+  width: 127px;
+  height: 7px;
+  background-image: url("/assets/icons/logo-nombre-propiedades.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 127px;
+  bottom: -15px;
+  left: calc(50% - 66px);
+}
+.footer--info {
+  box-sizing: border-box;
+  padding-top: 20px;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer--ubication {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--main-gray);
+}
+.footer--number-contact {
+  margin: 0;
+  position: relative;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--main-gray);
+}
+.footer--number-contact::before {
+  position: absolute;
+  top: -5px;
+  left: -25px;
+  content: "";
+  width: 23px;
+  height: 22px;
+  background-image: url("/assets/icons/whatsapp.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+}
+.footer--number-contact > a {
+  text-decoration: none;
+  color: var(--main-gray);
+}
+.footer--contact-mail {
+  margin: 0;
+  position: relative;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--main-gray);
+}
+.footer--contact-mail::before {
+  position: absolute;
+  top: -5px;
+  left: -28px;
+  content: "";
+  width: 23px;
+  height: 22px;
+  background-image: url("/assets/icons/mail.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+}
+.footer--contact-mail > a {
+  text-decoration: none;
+  color: var(--main-gray);
+}
+.footer--social-media {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer--fb {
+  margin: 0.5rem;
+  width: 30px;
+  height: 30px;
+  background-image: url("/assets/icons/facebook.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+.footer--fb:hover {
+  background-image: url("/assets/icons/facebook-hover.svg");
+}
+.footer--ig {
+  margin: 0.5rem;
+  width: 30px;
+  height: 30px;
+  background-image: url("/assets/icons/instagram.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+.footer--ig:hover {
+  background-image: url("/assets/icons/instagram-hover.svg");
+}
+.copyright {
+  height: 35px;
+  text-align: center;
+  color: var(--main-white);
+  background-color: var(--main-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copyright > p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+@media (min-width: 1023px) {
+  .footer {
+    height: 200px;
+  }
+  .footer--container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .footer--title {
+    width: 183px;
+  }
+  .footer--info {
+    width: 70%;
+    flex-direction: row;
+  }
+  .footer--ubication {
+    width: 155px;
+  }
+  .footer--number-contact {
+    width: 150px;
+  }
+  .footer--number-contact > a {
+    text-decoration: none;
+    color: var(--main-gray);
+  }
+  .footer--number-contact > a:hover {
+    color: var(--main-blue);
+  }
+  .footer--contact-mail {
+    width: 200px;
+  }
+  .footer--contact-mail > a {
+    text-decoration: none;
+    color: var(--main-gray);
+  }
+  .footer--contact-mail > a:hover {
+    color: var(--main-blue);
+  }
+  .footer--social-media {
+    width: auto;
+  }
+}
+@media (min-width: 1440px) {
+  .footer--info {
+    width: 50%;
+  }
+}

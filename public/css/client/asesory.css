@@ -1,0 +1,170 @@
+.asesory {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 75px;
+  margin-bottom: 20px;
+}
+.asesory--container {
+  box-sizing: border-box;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.asesory--title {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  margin-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 92.69%;
+  cursor: pointer;
+}
+.asesory--title > span {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  font-size: 15px;
+  color: var(--main-gray);
+  text-transform: none;
+  line-height: 110.19%;
+  text-align: center;
+}
+.asesory--content--container {
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 60px;
+}
+.asesory--card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  background-color: var(--main-white);
+  border-radius: 9px;
+  margin-bottom: 30px;
+}
+.asesory--card--number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 30px 15px;
+  font-weight: bold;
+  color: var(--secondary-gold);
+  font-size: 20px;
+  line-height: 20px;
+}
+.asesory--card--content {
+  position: relative;
+  padding: 25px 0 25px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--main-blue);
+}
+.asesory--card--content--title {
+  position: relative;
+  font-size: 16px;
+  width: 80%;
+  margin: 0;
+  transition: all 1s;
+}
+.asesory--card--content--title::after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  right: calc(-15%);
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/drop-arrow-black.svg");
+  transform: rotate(-90deg);
+}
+.open::after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  right: calc(-15%);
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/drop-arrow-black.svg");
+  transform: rotate(0deg);
+}
+.asesory--card--content--info {
+  box-sizing: border-box;
+  margin: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 0;
+  font-size: 14px;
+  line-height: 167.06%;
+  color: var(--main-gray);
+}
+.asesory--card--content--info > span {
+  color: var(--main-blue);
+}
+.asesory--card--content--info--subtitle {
+  box-sizing: border-box;
+  margin: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 0;
+  font-size: 15px;
+  line-height: 167.06%;
+  color: var(--main-blue);
+}
+.open-content {
+  height: auto;
+  padding: 20px 20px 20px 0;
+  visibility: visible;
+}
+.open-content-title {
+  height: auto;
+  visibility: visible;
+}
+@media (min-width: 1023px) {
+  .asesory--container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+  }
+  .asesory--card--content {
+    box-sizing: border-box;
+    padding: 50px 100px;
+  }
+  .asesory--card--content--title {
+    top: 2px;
+    font-size: 2rem;
+  }
+  .asesory--card--content--info--subtitle {
+    font-size: 18px;
+  }
+  .asesory--card--content--title::after {
+    right: -20%;
+    /* top: 0; */
+  }
+  .asesory--card--number {
+    top: 18px;
+    left: 40px;
+  }
+}

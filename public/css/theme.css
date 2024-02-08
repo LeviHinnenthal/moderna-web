@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap");
+/* font-family: 'Josefin Sans', sans-serif; */
+
+* {
+  --main-nude: #c49a6a;
+  --main-blue: #01173c;
+  --main-gray: #a2a2a2;
+  --main-white: #ffffff;
+  --main-bg: #f6f6f6;
+
+  --secondary-gray-black: #767676;
+  --secondary-gray-light: #e5e5e5;
+  --secondary-yellow-dark: #f6b049;
+  --secondary-yellow-light: #fdf1e3;
+  --secondary-green-dark: #35957b;
+  --secondary-green-light: #e4f6f0;
+  --secondary-blue-dark: #316cbf;
+  --secondary-blue-light: #e5f1f7;
+  --secondary-red: #e90202;
+  --secondary-gold: #c49a6a;
+  --secondary-btn-active: #1ed9a6;
+  --secondary-btn-inactive: #ed5b5b;
+  --secondary-btn-whatsapp: #03c993;
+
+  --font-primary: "Josefin Sans", sans-serif;
+  --font-title: 700;
+  --font-subtitle: 600;
+  --font-body: 400;
+
+  --mobile: 520px;
+  --desktop-small: 1023px;
+  --desktop-medium: 1440px;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+  font-size: 1.6rem;
+  margin: 0;
+  background-color: var(--main-bg);
+}
+
+.hidden {
+  visibility: hidden;
+}

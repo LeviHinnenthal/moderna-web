@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') -%>
+  <link rel="stylesheet" href="/css/client/properties.css" type="text/css" />
+  <body>
+    <%- include('../partials/navbar') -%>
+
+    <div class="properties-container">
+      <header class="properties--header">
+        <div class="properties--header--images--mobile">
+          <img src="/assets/images/properties-banner.png" alt="girl in chair" />
+        </div>
+        <div class="properties--header--images--web">
+          <img src="/assets/images/properties-banner.png" alt="girl in chair" />
+        </div>
+      </header>
+      <%- include('../partials/filters') -%>
+      <section class="properties">
+        <h3>
+          Encontramos
+          <span id="properties-count" data-count="<%= properties.length%>"
+            ><%= properties.length %></span
+          ><span> propiedades</span> disponibles para vos
+        </h3>
+        <div class="properties--container--cards">
+          <% properties.map((property, i) => { %>
+          <div class="propierties--card">
+            <a
+              href="/property/<%= property._id%>"
+              class="propierties--card--link"
+            >
+              <div class="propierties--card--img">
+                <div
+                  data-image="<%= property.primary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+                <div
+                  data-image="<%= property.secondary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+
+                <img
+                  src="<%= property.primary_img %>"
+                  alt="Imagen de propiedad"
+                />
+              </div>
+            </a>
+            <div class="featured-propierties--card--content">
+              <% if(property.sell_or_rent === "rent") {%>
+              <span class="feature-type-1">Alquiler</span>
+              <p id="card--cost">$<%= property.price%></p>
+              <% } else {%>
+              <span class="feature-type-2">Venta</span>
+              <p id="card--cost">US$<%= property.price%></p>
+              <% } %> <% if(property.code) {%>
+              <span class="feature-code">cod.<%= property.code%></span>
+              <% } %>
+              <p id="card--title"><%= property.name%></p>
+              <p id="card--direction"><%= property.ubication_name%></p>
+              <div class="card--info">
+                <p id="card--rooms"><%= property.room%> Dormitorios</p>
+                <p id="card--bathrooms"><%= property.bathroom%> Baños</p>
+                <p id="card--size"><%= property.size%> m2.</p>
+              </div>
+            </div>
+            <div class="card--see-details">
+              <a href="/property/<%= property._id%>">
+                <span>Ver detalles</span>
+              </a>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <% if (showMore !== false) {%>
+        <div class="property--load-more">
+          <span
+            id="properties-more"
+            data-filters="<%= filters %>"
+            data-skip="<%=totalPropierties%>"
+            data-ids="<% properties.map((property, i) => {
+            %><%=property._id%>,<%})%>"
+            >Cargar Más</span
+          >
+        </div>
+        <% } %>
+      </section>
+    </div>
+    <%- include('../partials/newsletter') -%> <%- include('../partials/footer')
+    -%> <%- include('../partials/scripts') -%>
+  </body>
+</html>

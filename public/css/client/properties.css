@@ -1,0 +1,347 @@
+.properties-container {
+  box-sizing: content-box;
+  position: relative;
+  margin-bottom: 12rem;
+  z-index: 5;
+  top: 75px;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.properties--header {
+  box-sizing: border-box;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
+.properties--header--images--mobile > img {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 245px;
+  border-radius: 9px;
+  object-fit: cover;
+}
+.properties--header--images--web {
+  display: none;
+}
+.properties--header--title {
+  position: absolute;
+  z-index: 4;
+  top: 150px;
+  left: calc(50% - 125px);
+}
+.properties--header--title > h3 {
+  margin: 1rem auto;
+  width: 100%;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 69.69%;
+  color: #ffffff;
+}
+.properties--header--title > p {
+  margin: 0;
+  color: var(--secondary-gold);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 69.69%;
+  text-align: center;
+}
+.properties {
+  box-sizing: border-box;
+  width: 100%;
+}
+.properties > h3 {
+  margin: 0;
+  padding: 0 2rem;
+  text-align: center;
+  color: var(--main-gray);
+  font-size: 18px;
+  line-height: 92.69%;
+}
+.properties > h3 > span {
+  color: var(--main-blue);
+}
+.properties--container--cards {
+  box-sizing: border-box;
+  margin-top: 32px;
+  padding: 0 2rem;
+  width: 100%;
+  height: auto;
+}
+.propierties--card {
+  box-sizing: border-box;
+  position: relative;
+  padding: 1.6rem;
+  height: auto;
+  width: 100%;
+  background-color: var(--main-white);
+  border-radius: 9px;
+  margin-bottom: 33px;
+}
+.propierties--card > a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.propierties--card--img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.propierties--card--img > img {
+  width: 100%;
+  height: 22.6rem;
+  object-fit: cover;
+}
+.feature-type-1 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  padding: 5px 8px 3px 8px;
+  width: 45px;
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+  line-height: 92.69%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: var(--main-white);
+  color: var(--main-blue);
+  text-align: center;
+}
+.feature-code {
+  position: absolute;
+  top: 35px;
+  left: 95px;
+  padding: 5px 8px 3px 8px;
+  width: 40px;
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+  line-height: 92.69%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: var(--secondary-gold);
+  color: var(--main-white);
+  text-align: center;
+}
+.feature-type-2 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  padding: 5px 8px 3px 8px;
+  width: 45px;
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+  line-height: 92.69%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: var(--main-blue);
+  color: var(--main-white);
+  text-align: center;
+}
+.propierties--card--content > p {
+  margin: 0;
+}
+#card--cost {
+  margin: 16px 0;
+  color: var(--secondary-gold);
+  font-weight: 600;
+  font-size: 22px;
+}
+#card--title {
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--main-blue);
+  margin-bottom: 18px;
+  height: 40px;
+}
+#card--direction {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 92.69%;
+  color: var(--main-gray);
+  margin-bottom: 18px;
+}
+.card--info {
+  position: relative;
+  left: 8px;
+  width: 95%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+#card--rooms,
+#card--bathrooms,
+#card--size {
+  position: relative;
+  left: 8px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 92.69%;
+  color: var(--main-gray);
+}
+#card--rooms::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-image: url("/assets/icons/bed.svg");
+}
+#card--bathrooms::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-image: url("/assets/icons/banera.svg");
+}
+#card--size::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-image: url("/assets/icons/size-icon.svg");
+}
+.card--see-details {
+  position: relative;
+  top: -5px;
+  display: none;
+}
+.popierties--load-more {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.popierties--load-more > span {
+  text-transform: uppercase;
+  color: var(--main-blue);
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.property--load-more {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.property--load-more > span {
+  text-transform: uppercase;
+  color: var(--main-blue);
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.card--see-details {
+  display: flex;
+  position: relative;
+  top: -5px;
+  opacity: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 20px 0 10px 0;
+  transition: all ease-in 0.5s;
+}
+.card--see-details > a {
+  font-family: "Josefin Sans", sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-blue);
+  border-radius: 9px;
+  font-size: 14px;
+  line-height: 92.69%;
+  color: var(--main-white);
+  cursor: pointer;
+}
+
+#properties-more {
+  cursor: pointer;
+}
+
+@media (min-width: 1023px) {
+  .properties {
+    position: relative;
+    top: -70px;
+    max-width: 1300px;
+    margin: 50px auto;
+  }
+
+  .properties-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+  }
+  .properties--header--images--mobile {
+    display: none;
+  }
+  .properties--header--images--web {
+    display: unset;
+  }
+  .properties--header--images--web > img {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .properties > h3 {
+    font-size: 1.8rem;
+    line-height: 92.69%;
+    margin-bottom: 5rem;
+  }
+  .properties--container--cards {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    grid-auto-rows: minmax(400px, auto);
+  }
+
+  .propierties--card {
+    position: relative;
+    box-sizing: border-box;
+    height: 450px;
+    width: 100%;
+    box-shadow: 0px 0px 58px rgb(0 0 0 / 10%);
+    transition: all 0.1s ease-in;
+  }
+  .propierties--card:hover {
+    transform: scale(1.1);
+    height: 480px;
+  }
+  .info--card {
+    padding: 11% 25px 30px 25px;
+  }
+}

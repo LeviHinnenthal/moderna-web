@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') -%>
+  <link rel="stylesheet" href="/css/client/property.css" type="text/css" />
+  <body>
+    <%- include('../partials/navbar') -%>
+    <div class="property-container">
+      <section class="property--images">
+        <div
+            data-image="<%= property.primary_img %>"
+            class="data__src"
+            style="display: none"
+          ></div>
+          <div
+            data-image="<%= property.secondary_img %>"
+            class="data__src"
+            style="display: none"
+          ></div>
+        <% property.images.map(img => { %>
+        <div
+          data-image="<%= img %>"
+          class="data__src"
+          style="display: none"
+        ></div>
+        <% })%>
+        <div class="property--images-container">
+          <div class="property--image">
+            <img
+              src="<%= property.primary_img %>"
+              alt="Imagen de propiedad"
+              id="visible__img"
+            />
+            <% if (property.images.length > 1 || property.primary_img !== null || property.secondary_img !== null) { %>
+            <div class="change__images">
+              <div class="change__pre"></div>
+              <div class="change__next"></div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+        <% if (property.images.length > 0) { %>
+          <div class="dots images-dots">
+          <% property.images.map((img, i) => { if (i === 0) {%>
+            <div class="dot dot--selected"></div>
+            <% }else { %>
+              <div class="dot"></div>
+            <% }}) %>
+          </div>
+          <% } %>
+      </section>
+      <section class="property--info">
+        <div class="property--info--container">
+          <div class="property--info--type">
+            <% if(property.sell_or_rent === "rent") {%>
+              <div class="property--type">
+                <p>Alquiler</p>
+              </div>
+              <div class="property--cost"><p>$<%= property.price%></p></div>
+            <% } else {%>
+              <div class="property--type">
+                <p>Venta</p>
+              </div>
+              <div class="property--cost"><p>US$<%= property.price%></p></div>
+            <% } %>
+          </div>
+          <h3 class="property--info--title"><%= property.name%></h3>
+          <p class="property--info--ubication"><%= property.ubication_name%></p>
+          <div class="property--info--features">
+            <p class="rooms">Dormitorios: <%= property.room%></p>
+            <p class="bathrooms">Baños: <%= property.bathroom%></p>
+            <p class="size"><%= property.size%> m²</p>
+          </div>
+          <div class="property--description">
+            <p class="property--description--title">
+              Descripción de la propiedad
+            </p>
+            <p class="property--description--content">
+              <%= property.description%>
+            </p>
+          </div>
+          <div class="property--caracteristics">
+            <h3 class="property--caracteristics--title">Características</h3>
+            <div class="property--caracteristics--list">
+              <ul>
+                <% property.property_characteristics.map((tag, i) => { %>
+                <li><p><%= tag %></p></li>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="property--atractions">
+        <div class="property--atractions--container">
+          <h3 class="property--atractions--title">Atractivos de la zona</h3>
+          <div class="property--atractions--categories">
+            <% property.attractions_area.map((attraction, i) => { %>
+            <p class="property--atractions--category familiar">
+              <%= attraction %>
+            </p>
+            <% }) %>
+          </div>
+          <div class="property--atractions--content">
+            <%= property.area_features %>
+          </div>
+          <% property.attractions_images.map(img => { %>
+            <div
+              data-image="<%= img %>"
+              class="data-atractions__src"
+              style="display: none"
+            ></div>
+            <% })%>
+            <% if (property.attractions_images.length > 0) { %>
+          <div class="property--atractions--images">
+            <% property.attractions_images.forEach(img => {%>
+              <img
+                src="<%= img %>"
+                alt="Imagen de propiedad"
+                id="visible__img-atraction"
+              />
+            <%})%>
+              <% if (property.attractions_images.length > 1) { %>
+              <div class="change__atractions-images">
+                <div class="change__pre__atraction"></div>
+                <div class="change__next__atraction"></div>
+              </div>
+            
+              <div class="dots images-dots atractions-dots">
+                <div class="dot dot--selected"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            
+            <% }} %>
+      </section>
+      <section class="property--neighbor">
+        <div class="property--neighbor--container">
+        <% if (property.neighbors.length >= 1) { %>
+          <h3 class="property--neighbor--title">
+            ¿Que opinan los vecinos sobre esta zona?
+          </h3>
+          <section class="neighbor--cards--container">
+            <div class="neighbor--cards">
+            <% property.neighbors.map((neighbor, i) => { %>
+              <div class="neighbor--card">
+                <% if (neighbor.sex === "male") {%>
+                <img src="/assets/icons/neighbor1.svg" alt="comentario de vecino" />
+                <%} else {%>
+                <img src="/assets/icons/neighbor2.svg" alt="comentario de vecino" />
+                <%}%>
+                <div class="neighbor--info">
+                  <p class="neighbor--name"><%= neighbor.name%></p>
+                  <div class="stars--container">
+                    <% for(i=0; i<5; i++) { if (i < neighbor.living_zone_stars) {%>
+                    <div class="star star-selected"></div>
+                    <% }else {%>
+                    <div class="star"></div>
+                    <% }}%>
+                  </div>
+                  <p class="neighbor--comment"><%= neighbor.review %></p>
+                </div>
+              </div>
+              <% }) %>
+            </div>
+          </section>
+          <!-- <div class="dots">
+            <div class="dot dot--selected"></div>
+            <div class="dot"></div>
+          </div> -->
+        <% } %>
+        </div>
+      </section>
+      <% if(property.video_url !== "") { %>
+        <section class="property--details--video">
+          <h3 class="property--details--video--title">
+            Conocé todos los detalles de ésta propiedad
+          </h3>
+          <div class="property-details--video--container">
+            <iframe
+              width="70%"
+              height="100%"
+              src=""
+              id="video-source"
+              data-video="<%= property.video_url%>"
+            >
+            </iframe>
+            <div class="details--banner">
+              <div class="banner--logo"></div>
+              <div class="banner--name"></div>
+              <div class="banner--media">
+                <div class="banner--ig"></div>
+                <div class="banner--fb"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      <% } %>
+      <section class="property--ubication">
+        <div class="property--ubication--container">
+          <h3>Ubicación</h3>
+          <iframe
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDzC2ORsuRz-J-M6cqXWwpJzYEHfHEmKZg
+              &q=<%= property.ubication_lat %>,<%= property.ubication_lng %>">
+          </iframe>
+        </div>
+      </section>
+      <section class="property--form">
+        <div class="property--form--container hide--form" data-id="<%= property.id %>">
+          <div class="property--form--container-buttons">
+            <div class="property--form--visit select-form-type">Quiero agendar una visita</div>
+            <div class="property--form--call select-form-type">Quero que me llamen</div>
+            <div class="property--form--know-more select-form-type">Quiero más información</div>
+          </div>
+          <div class="property--form--close"></div>
+          <p class="property--form--title">Consultá por esta propiedad</p>
+          <input
+            type="text"
+            name="name"
+            class="name"
+            id="property--form--input"
+            placeholder="Nombre*"
+          />
+          <input
+            type="text"
+            name="last_name"
+            class="last_name"
+            id="property--form--input"
+            placeholder="Apellido*"
+          />
+          <input
+            type="number"
+            name="phone"
+            class="phone"
+            id="property--form--input"
+            placeholder="Telefono*"
+          />
+          <input
+            type="email"
+            name="email"
+            class="email"
+            id="property--form--input"
+            placeholder="Email*"
+          />
+          <textarea
+            name="message"
+            class="msg"
+            id="property--form--textarea"
+            cols="30"
+            rows="10"
+            placeholder="Hola, me interesa esta propiedad Agradezco más información."
+          ></textarea>
+          <div class="property--form--submit">Enviar</div>
+        </div>
+        <div class="property--share-links">Compartir
+          <a href="https://wa.me/?text=mira esta propiedad http://modernapropiedades.com/property/<%= property.id%>" target="_blank">
+            <div class="property--share--whatsapp"></div>
+          </a>
+          <a href="https://www.facebook.com/share.php?u=http://modernapropiedades.com/property/<%= property.id%>" target="_blank">
+            <div class="property--share--fb"></div>
+          </a>
+        </div>
+      </section>
+      <section class="similar--propierties">
+        <h3>Propiedades Similares</h3>
+        <div class="similar-propierties--container">
+
+          <% properties.map((property, i) => { %> <% if(i <= 2) {%>
+          <div class="similar-propierties--card">
+            <a href="/property/<%= property.id%>" class="similar--card--link">
+              <div class="similar-propierties--card--img" >
+                <div
+                  data-image="<%= property.primary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+                <div
+                  data-image="<%= property.secondary_img %>"
+                  class="data-images__src"
+                  style="visibility: hidden"
+                ></div>
+                <img
+                  src="<%= property.primary_img %>"
+                  alt="Imagen de propiedad"
+                />
+              </div>
+            </a>
+            <div class="similar-propierties--card--content">
+              <% if(property.sell_or_rent === "rent") {%>
+              <span class="feature-type-1">Alquiler</span>
+              <p id="card--cost">$<%= property.price%></p>
+              <% } else {%>
+              <span class="feature-type-2">Venta</span>
+              <p id="card--cost">US$<%= property.price%></p>
+              <% } %>
+              <p id="card--title"><%= property.name%></p>
+              <p id="card--direction"><%= property.ubication_name%></p>
+              <div class="card--info">
+                <p id="card--rooms"><%= property.room%> Dormitorios</p>
+                <p id="card--bathrooms"><%= property.bathroom%> Baños</p>
+                <p id="card--size"><%= property.size%> m2.</p>
+              </div>
+            </div>
+            <div class="card--see-details">
+              <a href="/property/<%= property.id%>">
+                <span>Ver detalles</span>
+              </a>
+            </div>
+          </div>
+          <% }}) %>
+          <!-- <div class="dots">
+            <div class="dot dot--selected"></div>
+            <div class="dot"></div>
+          </div> -->
+        </div>
+      </section>
+    </div>
+    <%- include('../partials/newsletter') -%> <%- include('../partials/footer')
+    -%> <%- include('../partials/scripts') -%>
+  </body>
+</html>

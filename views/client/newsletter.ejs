@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') -%>
+  <link rel="stylesheet" href="/css/client/newsletter.css" type="text/css" />
+  <body>
+    <%- include('../partials/navbar') -%>
+    <section class="newsletter-view">
+      <div class="newsletter--container">
+        <h3 class="newsletter-title">
+          Novedades <span>Enterate de todas las novedades</span>
+        </h3>
+        <div class="newsletter-card--container">
+          <% newsletters.map((news, i) => { %> <% if(i <= 5) {%>
+          <div class="newsletter-card">
+            <img src="<%= news.principal_img %>" alt="Imagen de novedad" />
+            <p class="newsletter-card--title"><%= news.title %></p>
+            <div class="newsletter-card--content">
+              <small><%= news.description %></small>
+            </div>
+
+            <div class="newsletter-card--more">
+              <a href="/newsletter/<%= news.id %>">Leer más</a>
+            </div>
+          </div>
+          <% }}) %>
+        </div>
+        <div class="newsletter-card--load-more">
+          <span id="news-more" data-filters="" data-skip="6" data-ids="<% newsletters.map((news, i) => {if(i < 5) {
+            %><%=news.id%>,<%}})%>"
+            >Cargar Más</span
+          >
+        </div>
+      </div>
+    </section>
+    <%- include('../partials/newsletter') -%> <%- include('../partials/footer')
+    -%> <%- include('../partials/scripts') -%>
+  </body>
+</html>

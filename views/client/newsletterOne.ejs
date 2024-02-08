@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') -%>
+  <link
+    rel="stylesheet"
+    href="/css/client/newsletter-one.css"
+    type="text/css"
+  />
+  <body>
+    <%- include('../partials/navbar') -%>
+    <section class="newsletter-one">
+      <div class="newsletter-one--container">
+        <div class="newsletter-one--logo--mobile">
+          <img
+            src="<%= newsletter.principal_img %>"
+            alt="Imagen de propiedad"
+            id="visible__img"
+          />
+        </div>
+        <div class="newsletter-one--logo--web">
+          <img
+            src="<%= newsletter.principal_img %>"
+            alt="Imagen de propiedad"
+            id="visible__img"
+          />
+        </div>
+        <h3 class="newsletter-one--title"><%= newsletter.title %></h3>
+        <section class="newsletter-one--content">
+          <%= newsletter.description %>
+        </section>
+        <section class="newsletter-one--section--container">
+          <% if(newsletter.sub_name1){%>
+          <div class="newsletter-one--section">
+            <h4 class="newsletter-one--section--title">
+              <%= newsletter.sub_name1 %>
+            </h4>
+            <p class="newsletter-one--section--content">
+              <%= newsletter.sub_description1 %>
+            </p>
+          </div>
+          <%}%> <% if(newsletter.sub_name2){%>
+          <div class="newsletter-one--section">
+            <h4 class="newsletter-one--section--title">
+              <%= newsletter.sub_name2 %>
+            </h4>
+            <p class="newsletter-one--section--content">
+              <%= newsletter.sub_description2 %>
+            </p>
+          </div>
+          <%}%> <% if(newsletter.sub_name3){%>
+          <div class="newsletter-one--section">
+            <h4 class="newsletter-one--section--title">
+              <%= newsletter.sub_name3 %>
+            </h4>
+            <p class="newsletter-one--section--content">
+              <%= newsletter.sub_description3 %>
+            </p>
+          </div>
+          <%}%>
+        </section>
+        <% if(newsletter.text_img || newsletter.sub_img){ %>
+        <section class="newsletter-one--section--images">
+          <% if(newsletter.text_img){ %>
+          <div class="newsletter-one--section--image">
+            <img
+              src="<%= newsletter.text_img %>"
+              alt="Imagen de propiedad"
+              id="visible__img"
+            />
+          </div>
+          <% } %> <% if(newsletter.sub_img){ %>
+          <div class="newsletter-one--section--image">
+            <img
+              src="<%= newsletter.sub_img %>"
+              alt="Imagen de propiedad"
+              id="visible__img"
+            />
+          </div>
+          <% }%>
+        </section>
+        <% } %>
+        <section class="newsletter-one--section--author">
+          <div class="newsletter-one--section--author--avatar">
+            <img
+              src="/assets/images/author-avatar.png"
+              alt="imagen de author"
+            />
+          </div>
+          <div class="newsletter-one--section--author--data">
+            <p class="newsletter-one--section--author--name">Laura Melgar</p>
+            <p class="newsletter-one--section--author--info">
+              Asesora Inmobiliaria <br />Moderna Propiedades
+            </p>
+          </div>
+        </section>
+        <div class="newsletter-one--section--share">
+          <p class="newsletter-one--section--share--title">
+            ¿Te gustó este articulo?
+          </p>
+          <p class="newsletter-one--section--share--subtitle">
+            Compartelo con la comunidad
+          </p>
+          <div class="newsletter-one--section--share--redes">
+            <a
+              href="https://wa.me/59898648914?text=mira este articulo http://modernapropiedades.com/newsletter/<%= newsletter.id %>"
+              target="_blank"
+            >
+              <div class="newsletter-one--section--share--whatsapp"></div>
+            </a>
+            <a
+              href="https://www.facebook.com/share.php?u=http://modernapropiedades.com/newsletter/<%= newsletter.id %>"
+              target="_blank"
+            >
+              <div class="newsletter-one--section--share--fb"></div>
+            </a>
+            <!-- href="https://wa.me/59898648914?text=http://modernapropiedades.com/newsletter/<%= newsletter.id %>" -->
+
+            <!-- <div class="newsletter-one--section--share--ig"></div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('../partials/newsletter') -%> <%- include('../partials/footer')
+    -%> <%- include('../partials/scripts') -%>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<nav class="navbar">
+  <div class="navbar--container" id="navbar">
+    <a href="/"><div class="navbar--logo"></div></a>
+    <div class="navbar-search">
+      <input
+        type="text"
+        name="search"
+        id="navbar-search"
+        placeholder="Código de propiedad"
+      />
+    </div>
+    <div id="navbar--links-web">
+      <a href="/properties">Propiedades</a>
+      <a href="/asesory">Asesoramiento</a>
+      <a href="/about">Sobre Nosotros</a>
+      <a href="/newsletter">Novedades</a>
+      <a href="/#contact">Contacto</a>
+    </div>
+    <div id="btn--container">
+      <div class="navbar--btn" id="btn"></div>
+    </div>
+  </div>
+
+  <div class="navbar--links" id="links">
+    <div class="navbar-search-mobile">
+      <input
+        type="text"
+        name="search"
+        id="navbar-search-mobile"
+        placeholder="Código de propiedad"
+      />
+    </div>
+    <ul>
+      <li><a href="/properties">Propiedades</a></li>
+      <li><a href="/asesory">Asesoramiento</a></li>
+      <li><a href="/about">Sobre Nosotros</a></li>
+      <li><a href="/newsletter">Novedades</a></li>
+      <li><a href="/#contact">Contacto</a></li>
+    </ul>
+    <div class="navbar--social">
+      <a href="http://"><div id="navbar--fb"></div></a>
+      <a href="http://"><div id="navbar--ig"></div></a>
+    </div>
+  </div>
+</nav>
+
+<div id="popup-container">
+  <div id="popup-done">
+    <div class="popup__icon"></div>
+    <p class="popup__text">Se envió correctamente</p>
+    <button class="popup__button">Ok</button>
+  </div>
+
+  <div id="popup-error">
+    <div class="popup__icon"></div>
+    <p class="popup__text">
+      Debes completar un campo obligatorio : <span id="error__message"></span>
+    </p>
+    <button class="popup__button">Ok</button>
+  </div>
+
+  <div id="popup-loading">
+    <div class="popup__icon"></div>
+    <p class="popup__text">Aguarde un momento</p>
+  </div>
+</div>
+
+<div id="whatsapp-link-container">
+  <a
+    href="https://wa.me/59898648914?text=Hola%21%20Te%20escribo%20de%20la%20web%20con%20la%20siguiente%20consulta%3A%20"
+    target="_blank"
+  >
+    <div class="whatsapp-logo"></div>
+    <span class="whatsapp-text">Comunicate con nosotros</span>
+  </a>
+</div>

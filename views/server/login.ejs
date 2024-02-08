@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/login.css" type="text/css" />
+  <body>
+    <main id="admin-login">
+      <section id="admin-login--container">
+        <div class="login--logo">
+          <img
+            src="/assets/icons/moderna-logo+name.svg"
+            alt="Moderna propiedades logo"
+          />
+        </div>
+        <h3 class="login--title">Inicio de Sesión</h3>
+        <%if (loginMessage.lengh > 0) {%>
+        <div><%= loginMessage %></div>
+        <% } %>
+        <form action="/admin/auth" method="POST" id="login--form">
+          <input
+            type="email"
+            name="email"
+            id="admin-form--email"
+            placeholder="E-mail"
+          />
+          <input
+            type="password"
+            name="password"
+            id="admin-form--pass"
+            placeholder="Contraseña"
+          />
+          <button type="submit" id="login--submit">Iniciar Sessión</button>
+        </form>
+        <div id="login--info">
+          <p>Panel de Control</p>
+          <p>modernapropiedades.com</p>
+        </div>
+      </section>
+    </main>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

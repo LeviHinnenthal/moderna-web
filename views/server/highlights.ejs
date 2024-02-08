@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/highlights.css" type="text/css" />
+  <body>
+    <main id="admin__highlights">
+      <%- include('./partials/navbar') -%>
+      <div class="admin__highlights__container">
+        <%- include('./partials/header') -%>
+        <section class="admin__highlights__section">
+          <section class="admin__highlights__titles">
+            <h3>Agregar banner</h3>
+            <p>Estos banner se veran en el home</p>
+          </section>
+          <section class="admin__highlights__form">
+            <div class="admin-add-highlights__form-group news__desktop__image">
+              <p>Agrega una imagen - PC</p>
+              <div class="add__images_container desktop">
+                <div class="add__desktop__image">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="desktop__img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-highlights__form-group mobile_image">
+              <p>Agrega una imagen - Celular</p>
+              <div class="add__images_container mobile">
+                <div class="add__mobile__image">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="mobile__img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin__highlights_images">
+              <div class="banners__desktop">
+                <div class="desktop__tittle">
+                  <p>Todo los banners - Desktop</p>
+                </div>
+              </div>
+              <div class="desktop__headers">
+                <p>Nombre</p>
+                <p>Preview</p>
+              </div>
+              <div class="banners__desktop">
+                <% banners.map((banner, i) => { %>
+                  <% if(banner.type === "Desktop") {%>
+                <div class="banner">
+                  <div class="banner__title">
+                    <span>#<%= i %></span>
+                    <p><%= banner.name %></p>
+                  </div>
+                  <div class="banner__img">
+                    <img
+                      src="<%= banner.image_url %>"
+                      alt="Imagen de propiedad"
+                    />
+                  </div>
+                  <div class="banner__actions">
+                    <div class="banner__delete" data-id="<%= banner.id %>"></div>
+                    <p>Activo</p>
+                    <div class="<%= banner.active ? "bannerActive banner__active" : "bannerActive banner__inactive" %>" data-id="<%= banner.id %>" data-active="<%= banner.active %>"></div>
+                  </div>
+                </div>
+                <% }}) %>
+              </div>
+              <div class="banners__mobile">
+                <div class="mobile__tittle">
+                  <p>Todo los banners - Mobile</p>
+                </div>
+                <div class="mobile__headers">
+                  <p>Nombre</p>
+                  <p>Preview</p>
+                </div>
+                <div class="banners__images">
+                  <% banners.map((banner, i) => { %>
+                    <% if(banner.type === "Mobile") {%>
+                  <div class="banner">
+                    <div class="banner__title">
+                      <span>#<%= i %></span>
+                      <p><%= banner.name %></p>
+                    </div>
+                    <div class="banner__img">
+                      <img
+                        src="<%= banner.image_url %>"
+                        alt="Imagen de propiedad"
+                      />
+                    </div>
+                    <div class="banner__actions">
+                      <div class="banner__delete" data-id="<%= banner.id %>"></div>
+                      <p>Activo</p>
+                      <div class="<%= banner.active ? "bannerActive banner__active" : "bannerActive banner__inactive" %>" data-id="<%= banner.id %>" data-active="<%= banner.active %>"></div>
+                    </div>
+                  </div>
+                  <% }}) %>
+                </div>
+              </div>
+            </div>
+            <div class="banners-submit">Guardar</div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

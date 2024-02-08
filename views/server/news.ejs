@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/news.css" type="text/css" />
+  <body>
+    <div class="admin-properties--container">
+        <%- include('./partials/navbar') -%>
+        <div class="admin-news--container--data">
+        <%- include('./partials/header') -%>
+        <section class="admin-properties--section">
+          <section class="admin-properties--titles">
+            <h3>Agrega un Articulo</h3>
+            <p>Cargá la siguiente información</p>
+          </section>
+          <section class="admin-properties--actions">
+            <div class="admin-news--add">
+              <a href="/admin/news/add">Agregar Articulo</a>
+            </div>
+            <div class="admin-properties--search">
+              <input
+                type="text"
+                name="properties-filter"
+                id=""
+                placeholder="Buscar"
+              />
+            </div>
+          </section>
+          <section class="admin-properties--filters">
+            <p>Filtrar</p>
+            <div id="properties--filter-ubication--container">
+              <select name="ubication" id="properties--filter-ubication">
+                <option>Por ubicación</option>
+              </select>
+            </div>
+            <div id="properties--filter-date--container">
+              <select name="date" id="properties--filter-date">
+                <option>Por fecha</option>
+              </select>
+            </div>
+          </section>
+          <section class="admin-properties--list">
+            <% posts.map((post, i) => { %>
+
+            <article class="admin-properties--card">
+              <div class="admin-properties--card--img">
+                <img
+                  src="<%= post.principal_img %>"
+                  alt="Imagen de propiedad"
+                />
+              </div>
+              <p class="admin-properties--card--title"><%= post.title %></p>
+              <div class="admin-properties--card--actions">
+                <div class="actions-left">
+                    <a href="/admin/news/edit/<%= post.id %>" class="newsletter-edit property--action--edit" data-id="<%= post.id %>"></a>
+                  <div class="newsletter-delete property--action--delete" data-id="<%= post.id %>"> 
+                  </div>
+                </div>
+                <div class="actions-right">
+                  <p> <%= post.is_active ? "Activa" : "Inactiva" %></p>
+                  <div class="<%= post.is_active ? "newsletter property--active" : "newsletter property--inactive" %>" data-active="<%= post.is_active %>" data-id="<%= post.id %>"></div>
+                </div>
+              </div>
+            </article>
+            <% }) %>
+          </section>
+        </section>
+        </div>
+      </div>
+
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

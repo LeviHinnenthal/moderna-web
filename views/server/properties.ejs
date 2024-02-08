@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/properties.css" type="text/css" />
+  <body>
+      <div class="admin-properties--container">
+        <%- include('./partials/navbar') -%>
+        <div class="admin-properties--container--data">
+        <%- include('./partials/header') -%>
+        <section class="admin-properties--section">
+          <section class="admin-properties--titles">
+            <h3>Propiedades</h3>
+            <p>Edita, agrega o elimina una propiedad</p>
+          </section>
+          <section class="admin-properties--actions">
+            <div class="admin-properties--add">
+              <a href="/admin/properties/add">Agregar Propiedad</a>
+            </div>
+            <div class="admin-properties--search">
+              <input
+                type="text"
+                name="properties-filter"
+                id=""
+                placeholder="Buscar"
+              />
+            </div>
+          </section>
+          <section class="admin-properties--filters">
+            <p>Filtrar</p>
+            <div id="properties--filter-type--container">
+              <select name="type" id="properties--filter-type">
+                <option>Por tipo de propiedad</option>
+              </select>
+            </div>
+            <div id="properties--filter-date--container">
+              <select name="date" id="properties--filter-date">
+                <option>Por fecha</option>
+              </select>
+            </div>
+          </section>
+          <section class="admin-properties--list">
+            <% properties.map((property, i) => { %>
+
+            <article class="admin-properties--card">
+              <div class="admin-properties--card--img">
+                <img
+                  src="<%= property.primary_img %>"
+                  alt="Imagen de propiedad"
+                />
+              </div>
+              <p class="admin-properties--card--title"><%= property.name %></p>
+              <div class="admin-properties--card--actions">
+                <div class="actions-left">
+                  <a href="/admin/properties/edit/<%= property.id %>" class="property-edit property--action--edit" data-id="<%= property.id %>"></a> 
+                  <div class="property-delete property--action--delete" data-id="<%= property.id %>"></div>
+                  <% if (property.highlight !== true) {%>
+                    <div class="property-highlight-edit" data-highlight="<%= property.highlight %>" data-id="<%= property.id %>"></div> 
+                   <% } else { %>
+                    <div class="property-highlight-edit selected-hightlight " data-highlight="<%= property.highlight %>" data-id="<%= property.id %>"></div>
+                  <% } %>
+                </div>
+                <div class="actions-right">
+                  <p><%= property.active ? "Activa" : "Inactiva" %></p>
+                  <div class="<%= property.active ? "property property--active" : "property property--inactive" %>" data-active="<%= property.active %>" data-id="<%= property.id%>"></div>
+                </div>
+              </div>
+            </article>
+            <% }) %>
+          </section>
+        </section>
+      </div>
+      </div>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

@@ -1,0 +1,504 @@
+/* ANIMATIONS */
+@keyframes toggle {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* STYLES */
+.navbar {
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-white);
+}
+
+.navbar--container {
+  box-sizing: border-box;
+  z-index: 10;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-white);
+}
+.navbar--container > a {
+  width: 165px;
+  height: 36px;
+}
+.navbar--logo {
+  width: 165px;
+  height: 36px;
+  background-image: url("../../assets/icons/moderna-logo+name.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 165px;
+}
+.navbar-open {
+  transition: all 1s;
+}
+.navbar--btn {
+  box-sizing: border-box;
+  position: relative;
+  top: 15px;
+  margin: 15px 0;
+  width: 34px;
+  background-color: var(--main-blue);
+  height: 3px;
+  cursor: pointer;
+  z-index: 10;
+  display: inline-block;
+}
+.navbar--btn::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 34px;
+  background-color: var(--main-blue);
+  height: 3px;
+  transition: all 0.5s;
+}
+.navbar--btn::after {
+  content: "";
+  bottom: -10px;
+  position: absolute;
+  width: 34px;
+  background-color: var(--main-blue);
+  height: 3px;
+  transition: all 0.5s;
+}
+#btn--container {
+  box-sizing: border-box;
+  position: relative;
+  width: 85px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.btn-open {
+  background-color: var(--main-white);
+}
+.btn-open::after {
+  top: calc(40%);
+  right: 0;
+  width: 27px;
+  transform: rotate(45deg);
+  transition: all 0.7s;
+}
+.btn-open::before {
+  top: calc(40%);
+  right: 0;
+  width: 27px;
+  transform: rotate(-45deg);
+  transition: all 0.7s;
+}
+
+.navbar--links {
+  position: absolute;
+  z-index: 9;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-632px);
+  transition: all 1s;
+  background-color: var(--main-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar--links > ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar--links > ul > li {
+  margin: 25px 0;
+}
+
+.navbar--links > ul > li > a {
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--main-blue);
+  cursor: pointer;
+}
+.navbar--links > ul > li > a:hover {
+  color: var(--secondary-gold);
+}
+.active {
+  transform: translateY(0);
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-start;
+}
+.navbar--social {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbar--fb {
+  height: 35px;
+  width: 35px;
+  background-image: url("/assets/icons/facebook.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 29px;
+}
+#navbar--ig {
+  margin: 0 10px;
+  height: 35px;
+  width: 35px;
+  background-image: url("/assets/icons/instagram.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 29px;
+}
+.navbar-search,
+.navbar-search-mobile {
+  position: relative;
+  margin-left: 30px;
+  width: fit-content;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-search-mobile {
+  width: fit-content;
+  /* background-color: red; */
+  margin-top: 5rem;
+}
+.navbar-search-list {
+  position: absolute;
+  margin: 0;
+  padding: 10px 0;
+  width: 200px;
+  max-width: 200px;
+  height: fit-content;
+  max-height: 50vh;
+  top: 100%;
+  left: 0;
+  background-color: var(--main-bg);
+  overflow-y: scroll;
+}
+.navbar-search-list::-webkit-scrollbar {
+  display: none;
+}
+.navbar-search-list > li {
+  box-sizing: border-box;
+  padding: 4px 10px;
+  list-style: none;
+  border-top: 2px solid var(--main-blue);
+}
+.search-item {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.search-item > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.search-item > p {
+  margin: 0;
+  width: 80%;
+  font-size: 12px;
+  color: var(--main-blue);
+  font-weight: 500;
+}
+#navbar-search,
+#navbar-search-mobile {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 25px;
+  width: 200px;
+  border: none;
+  height: 30px;
+  border-radius: 2px;
+  border-bottom: 2px solid var(--main-blue);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13px;
+  line-height: 50px;
+  background-position: 3% 50%;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-image: url("/assets/icons/search.svg");
+}
+#navbar-search:focus,
+#navbar-search-mobile:focus {
+  background-image: none;
+  padding-left: 12px;
+}
+#navbar-search::placeholder,
+#navbar-search-mobile::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13px;
+  line-height: 50px;
+  padding-left: 0.6rem;
+}
+#navbar--links-web {
+  display: none;
+}
+#popup-container {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 60, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+#popup-done {
+  box-sizing: border-box;
+  position: absolute;
+  margin: auto;
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 50px;
+  border-radius: 9px;
+  background-color: var(--main-white);
+  visibility: hidden;
+}
+
+#popup-done > .popup__icon {
+  margin: 0 auto;
+  width: 105px;
+  height: 105px;
+  background-image: url("/assets/icons/icon-done.svg");
+  background-position: space-evenly;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#popup-error {
+  box-sizing: border-box;
+  position: absolute;
+  margin: auto;
+  width: 300px;
+  height: 350px;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 9px;
+  background-color: var(--main-white);
+  visibility: hidden;
+}
+
+#popup-error > .popup__icon {
+  margin: 0 auto;
+  width: 105px;
+  height: 105px;
+  background-image: url("/assets/icons/icon-error.svg");
+  background-position: space-evenly;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#popup-loading {
+  box-sizing: border-box;
+  position: absolute;
+  margin: auto;
+  padding: 30px 50px;
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 9px;
+  background-color: var(--main-white);
+  visibility: hidden;
+}
+
+#popup-loading > .popup__icon {
+  margin: 0 auto;
+  width: 105px;
+  height: 105px;
+  background-image: url("/assets/icons/icon-loader.svg");
+  background-position: space-evenly;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.popup__text {
+  margin: 30px auto;
+  width: fit-content;
+  font-size: 20px;
+  text-align: center;
+}
+.popup__button {
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  margin: 0 auto;
+  width: 180px;
+  height: 37px;
+  text-align: center;
+  background-color: var(--main-blue);
+  color: var(--main-white);
+  font-size: 16px;
+  border-radius: 9px;
+}
+
+.popup__button:active {
+  transform: scale(0.9);
+}
+
+#whatsapp-link-container {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  z-index: 30;
+  width: 57px;
+  height: 57px;
+  border-radius: 100%;
+  background-color: var(--main-blue);
+  overflow: hidden;
+}
+.whatsapp-logo {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/icons/whatsapp-btn.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+.whatsapp-text {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .navbar-search,
+  #navbar-search {
+    display: none;
+  }
+}
+@media (min-width: 1023px) {
+  .navbar {
+    background-color: var(--main-bg);
+  }
+  .navbar--container {
+    background-color: transparent;
+  }
+  #btn--container {
+    display: none;
+  }
+  .navbar--btn {
+    display: none;
+  }
+  #links {
+    display: none;
+  }
+  #navbar--links-web {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    padding: 0 10px;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #navbar--links-web > a {
+    text-decoration: none;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 69.69%;
+    color: var(--main-blue);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+  }
+  #navbar--links-web > a:hover {
+    color: var(--secondary-gold);
+  }
+  #popup-done {
+    width: 380px;
+    padding: 30px 50px;
+  }
+  #popup-error {
+    width: 380px;
+    padding: 30px 50px;
+  }
+  #popup-loading {
+    width: 380px;
+    padding: 30px 50px;
+  }
+  #whatsapp-link-container {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 330px !important;
+    height: 76px !important;
+    border-radius: 130px !important;
+    background-color: var(--main-white) !important;
+  }
+  #whatsapp-link-container > a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+  }
+  .whatsapp-logo {
+    width: 57px;
+    height: 57px;
+    background-size: 60% !important;
+    border-radius: 100%;
+    background-color: #03c993;
+  }
+  .whatsapp-text {
+    display: block;
+    font-size: 1.9rem;
+    color: #03c993;
+  }
+}
+@media (min-width: 1440px) {
+  .navbar--container {
+    margin: 0.5rem auto;
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+  }
+}

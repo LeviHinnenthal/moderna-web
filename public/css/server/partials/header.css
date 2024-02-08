@@ -1,0 +1,18 @@
+#admin-header {
+  position: relative;
+  box-sizing: border-box;
+  padding: 2.5rem 10rem;
+  width: 100%;
+  height: 7.4rem;
+  background-color: var(--main-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin-header--title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 69.69%;
+  color: var(--main-blue);
+}

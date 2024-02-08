@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/editNews.css" type="text/css" />
+  <body>
+    <main id="admin__news">
+      <%- include('./partials/navbar') -%>
+      <section class="admin__news__container">
+        <%- include('./partials/header') -%>
+        <section class="admin__news__section">
+          <section class="admin__news__titles">
+            <h3>Editar un Articulo</h3>
+            <p>Edita los siguientes datos</p>
+          </section>
+          <section class="admin__news__form-1">
+            <div class="admin-add-news__form-group news-title">
+              <p>Titulo del articulo</p>
+              <input
+                type="text"
+                placeholder="Ej: Apartamento con vista al mar"
+                value="<%= post.title %>"
+                id="news-name"
+              />
+            </div>
+            <div class="admin__news__active-inactive__btn">
+              <% if(post.show_author === false){ %>
+              <div class="btn-left">
+                <p>Publicar Autor</p>
+                <div
+                  class="btn-news-1-edit toggle-btn-inactive"
+                  data-author="false"
+                ></div>
+              </div>
+              <% }else{ %>
+              <div class="btn-left">
+                <p>Publicar Autor</p>
+                <div
+                  class="btn-news-1-edit toggle-btn-active"
+                  data-author="true"
+                ></div>
+              </div>
+              <% } %> <% if(post.active_is === false){ %>
+              <div class="btn-right">
+                <p>Activa</p>
+                <div
+                  class="btn-news-2-edit toggle-btn-inactive"
+                  data-active="false"
+                ></div>
+              </div>
+              <%}else{%>
+              <div class="btn-right">
+                <p>Activa</p>
+                <div
+                  class="btn-news-2-edit toggle-btn-active"
+                  data-active="true"
+                ></div>
+              </div>
+
+              <% }%>
+            </div>
+            <div class="admin-add-news__form-group news-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="property-description"
+              >
+<%= post.description %></textarea
+              >
+            </div>
+            <div
+              class="
+                admin-add-news__form-group
+                news__principal__image
+                principal
+              "
+            >
+              <p>Imágen principal</p>
+              <div class="add__images_container">
+                <% if(post.principal_img) { %>
+
+                <div class="news--img-container">
+                  <img
+                    class="new-newsletter--image"
+                    src="<%= post.principal_img %>"
+                  />
+                  <div
+                    class="news--img-delete-btn--edit area-color"
+                    data-name="<%= post.principal_img %>"
+                    data-id="<%=post.id%>"
+                    data-type="principal"
+                  >
+                    Borrar imagen
+                  </div>
+                </div>
+                <%} else {%>
+                <div class="add_news_image_principal">
+                  <div class="add-image">
+                    <p>No se cargó imágen</p>
+                  </div>
+                </div>
+                <%}%>
+              </div>
+            </div>
+            <div class="admin-add-news__form-group news__text__image text">
+              <p>Imágen en texto</p>
+              <div class="add__images_container">
+                <% if(post.text_img) { %>
+
+                <div class="news--img-container">
+                  <img
+                    class="new-newsletter--image"
+                    src="<%= post.text_img %>"
+                  />
+                  <div
+                    class="news--img-delete-btn--edit area-color"
+                    data-name="<%= post.text_img %>"
+                    data-id="<%=post.id%>"
+                    data-type="text"
+                  >
+                    Borrar imagen
+                  </div>
+                </div>
+                <%} else {%>
+                <div class="add_news_image_principal">
+                  <div class="add-image">
+                    <p>No se cargó imágen</p>
+                  </div>
+                </div>
+                <%}%>
+              </div>
+            </div>
+            <div class="admin-add-news__form-group news-video">
+              <p>Subir videos de Youtube</p>
+              <input
+                type="text"
+                placeholder="url del video"
+                id="news-video-url"
+                value="<%= post.video_url %>"
+              />
+              <div id="news-video-btn"><p>Agregar</p></div>
+            </div>
+          </section>
+          <section class="admin__news__form-2">
+            <div class="admin-add-news__form-group news-sub1">
+              <p>Subtítulo 01</p>
+              <input
+                type="text"
+                placeholder="Escribe aquí"
+                id="news-sub1"
+                value="<%=post.sub_name1%>"
+              />
+            </div>
+            <div class="admin-add-news__form-group news-sub1-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub1-description"
+              >
+<%=post.sub_description1%></textarea
+              >
+            </div>
+            <div class="admin-add-news__form-group news-sub2">
+              <p>Subtítulo 02</p>
+              <input
+                type="text"
+                placeholder="Escribe aquí"
+                id="news-sub2"
+                value="<%=post.sub_name2%>"
+              />
+            </div>
+            <div class="admin-add-news__form-group news-sub2-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub2-description"
+              >
+<%=post.sub_description2%></textarea
+              >
+            </div>
+            <div class="admin-add-news__form-group news-sub3">
+              <p>Subtítulo 03</p>
+              <input
+                type="text"
+                placeholder="Escribe aquí"
+                id="news-sub3"
+                value="<%=post.sub_name3%>"
+              />
+            </div>
+            <div class="admin-add-news__form-group news-sub3-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="news-sub3-description"
+              >
+<%=post.sub_description3%></textarea
+              >
+            </div>
+            <div class="admin-add-news__form-group news-sub-images sub">
+              <p>Imágen en texto</p>
+              <div class="add__images_container">
+                <% if(post.sub_img) { %>
+
+                <div class="news--img-container">
+                  <img
+                    class="new-newsletter--image"
+                    src="<%= post.sub_img %>"
+                  />
+                  <div
+                    class="news--img-delete-btn--edit area-color"
+                    data-name="<%= post.sub_img %>"
+                    data-id="<%=post.id%>"
+                    data-type="sub"
+                  >
+                    Borrar imagen
+                  </div>
+                </div>
+                <%} else {%>
+                <div class="add_news_image_principal">
+                  <div class="add-image">
+                    <p>No se cargó imágen</p>
+                  </div>
+                </div>
+                <%}%>
+              </div>
+            </div>
+          </section>
+        </section>
+        <div class="news-submit-edit">Guardar</div>
+      </section>
+    </main>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') -%>
+  <link rel="stylesheet" href="/css/server/addProperty.css" type="text/css" />
+  <body>
+    <main id="admin-add-property">
+      <%- include('./partials/navbar') -%>
+      <div class="admin-add-property--container">
+        <%- include('./partials/header') -%>
+        <section class="admin-add-property--section">
+          <section class="admin-add-property--titles">
+            <h3>Agrega una propiedad</h3>
+            <p>Completa los siguientes datos</p>
+          </section>
+          <section class="admin-add-property--form-1" id="property-data">
+            <div class="admin-add-property--form-group property-title">
+              <p>Nombre de la Propiedad</p>
+              <input
+                type="text"
+                placeholder="Ej: Apartamento con vista al mar"
+                id="property-name"
+              />
+            </div>
+            <div class="admin-add-property--form-group property-description">
+              <p>Descripción</p>
+              <textarea
+                name="descripcion"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Descripción"
+                id="property-description"
+              ></textarea>
+            </div>
+            <div class="admin-add-property--form-group property-sellrent">
+              <p>¿Se vende o se alquila?</p>
+              <div class="property-sellrent-btn">
+                <div class="selected" id="property-rent" data-type="rent">
+                  Alquiler
+                </div>
+                <div id="property-sell" data-type="sell">Venta</div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-price">
+              <p>Precio</p>
+              <input type="text" placeholder="$" id="property-price" />
+            </div>
+            <div class="admin-add-property--form-group property-bathroom">
+              <p>Baños</p>
+              <input type="number" placeholder="2" id="property-bathroom" />
+              <div class="input-number">
+                <div class="up" id="bathroom-up"></div>
+                <div class="down" id="bathroom-down"></div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-room">
+              <p>Dormitorios</p>
+              <input type="number" placeholder="2" id="property-room" />
+              <div class="input-number">
+                <div class="up" id="room-up"></div>
+                <div class="down" id="room-down"></div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-size">
+              <p>Metros</p>
+              <input type="number" placeholder="200" id="property-size" />
+              <div class="input-number">
+                <div class="up" id="size-up"></div>
+                <div class="down" id="size-down"></div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-code">
+              <p>Código</p>
+              <input type="text" placeholder="002" id="property-code" />
+            </div>
+            <div class="admin-add-property--form-group property-type">
+              <p>Tipo de propiedad</p>
+              <select name="type-property" id="property-type">
+                <option value="apartment">Apartamento</option>
+                <option value="studio_apartment">Monoambiente</option>
+                <option value="house">Casa</option>
+                <option value="ground">Terreno</option>
+              </select>
+            </div>
+            <div
+              class="admin-add-property--form-group property-characteristics"
+            >
+              <p>Características</p>
+              <textarea
+                name="caracteristicas"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Las caracteristicas se mostrarán en formato de lista. Seleccione palabras separadas por un enter."
+                id="property-features"
+              ></textarea>
+            </div>
+            <div class="admin-add-property--form-group property-img-primary">
+              <p>Imágen principal</p>
+              <div class="add-images-container">
+                <div class="add-primary-image-list">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="new-primary--img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-img-secondary">
+              <p>Imágen secundaria</p>
+              <div class="add-images-container">
+                <div class="add-secondary-image-list">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="new-secondary--img-btn" type="file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-images">
+              <p>Imágenes propiedad (Todas)</p>
+              <div class="add-images-container">
+                <div class="add-property-images-list">
+                  <div class="add-image">
+                    <p>Cargar</p>
+                    <input id="new-property--img-btn" type="file" multiple />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="admin-add-property--form-group property-video">
+              <p>Subir videos de Youtube</p>
+              <input
+                type="text"
+                placeholder="url del video"
+                id="property-video-url"
+              />
+              <div id="property-video-btn"><p>Agregar</p></div>
+            </div>
+            <div
+              class="admin-add-property--form-group property-highlight-wrapper"
+            >
+              <p>Propiedad Destacada</p>
+              <div class="property-highlight">
+                <p>Agregar a destacados</p>
+                <div id="property-highlight"></div>
+              </div>
+            </div>
+          </section>
+          <section class="admin-add-property--form-2" id="attractions-area">
+            <div class="admin-add-property--form-group property-direction">
+              <p>Dirección</p>
+              <input
+                type="text"
+                placeholder="Malvín 585, Montevideo"
+                id="property-direction"
+              />
+            </div>
+            <div class="admin-add-property--form-group property-department">
+              <p>Departamento</p>
+              <select name="property-department" id="property-department">
+                <option value="artigas">Artigas</option>
+                <option value="canelones">Canelones</option>
+                <option value="cerro_largo">Cerro Largo</option>
+                <option value="colonia">Colonia</option>
+                <option value="flores">Flores</option>
+                <option value="florida">Florida</option>
+                <option value="lavalleja">Lavalleja</option>
+                <option value="maldonado">Maldonado</option>
+                <option value="montevideo">Montevideo</option>
+                <option value="paysandu">Paysandu</option>
+                <option value="salto">Salto</option>
+                <option value="rivera">Rivera</option>
+                <option value="treinta_y_tres">Treinta y Tres</option>
+                <option value="tacuarembo">Tacuarembo</option>
+                <option value="durazno">Durazno</option>
+                <option value="rio_negro">Rio Negro</option>
+                <option value="rocha">Rocha</option>
+                <option value="san_jose">San Jose</option>
+                <option value="soriano">Soriano</option>
+              </select>
+            </div>
+            <div class="admin-add-property--form-group property-tags">
+              <p>Etiquetas</p>
+              <input
+                type="text"
+                placeholder="casa, iluminada, etc"
+                name="type-property"
+                id="property-tags"
+              />
+            </div>
+            <div class="admin-add-property--form-group area-features">
+              <p>Atractivos de la zona</p>
+              <textarea
+                name="area-features"
+                class=""
+                cols="30"
+                rows="10"
+                placeholder="Atractivos"
+                id="area-features"
+              ></textarea>
+            </div>
+            <div class="admin-add-property--form-group area-images">
+              <p>Cargar imágenes</p>
+              <div class="add-images-container">
+                <div class="add-area-images-list"></div>
+                <div class="add-image">
+                  <p>Cargar</p>
+                  <input id="new-area--img-btn" type="file" />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="admin-add-property--form-3">
+            <div class="neighbor-form">
+              <div class="admin-add-property--form-group neighbor-name">
+                <p>Nombre del Vecino 1</p>
+                <input
+                  type="text"
+                  placeholder="Juan"
+                  class="neighbor-name-val"
+                />
+              </div>
+              <div class="admin-add-property--form-group neighbor-sex">
+                <p>Seleccione el sexo</p>
+                <div class="neighbor-sex-btn">
+                  <div class="selected" id="neightbor-male" data-sex="male">
+                    Hombre
+                  </div>
+                  <div id="neightbor-female" data-sex="female">Mujer</div>
+                </div>
+              </div>
+              <div class="admin-add-property--form-group neighbor-stars">
+                <p>Estrellas</p>
+                <input type="number" value="4" id="neighbor-stars" max="5" />
+                <div class="input-number">
+                  <div class="up" id="stars-up"></div>
+                  <div class="down" id="stars-down"></div>
+                </div>
+              </div>
+              <div class="admin-add-property--form-group neighbor-review">
+                <p>Reseña</p>
+                <textarea
+                  name="descripcion"
+                  class=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Descripción"
+                ></textarea>
+              </div>
+            </div>
+            <div id="add-new-neighbor-btn">Agregar otro vecino</div>
+          </section>
+        </section>
+        <div class="property-submit">Guardar</div>
+      </div>
+    </main>
+    <!-- Google Maps -->
+    <script>
+      /* GOOGLE MAPS AUTOCMPLETE */
+      let autocomplete;
+      const data = {
+        area: "",
+        name: "",
+        lat: "",
+        lng: "",
+      };
+      window.initAutocomplete = function () {
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById("property-direction"),
+          {
+            types: ["address"],
+            componentRestrictions: { country: ["UY"] },
+            fields: ["address_components", "geometry", "icon", "name"],
+          }
+        );
+
+        autocomplete.addListener("place_changed", onPlaceChanged);
+      };
+
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+
+        if (!place.geometry) {
+          document.getElementById("property-direction").placeholder =
+            "Seleccione una dirección válida";
+        } else {
+          // get lat
+          let lat = place.geometry.location.lat();
+          // get lng
+          let lng = place.geometry.location.lng();
+          //get area
+          let area = place.address_components[3].short_name;
+
+          // console.log(place.address_components);
+
+          data.lat = `${lat}`;
+          data.lng = `${lng}`;
+          data.area = `${area}`;
+          data.name = place.name;
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzC2ORsuRz-J-M6cqXWwpJzYEHfHEmKZg&libraries=places&callback=initAutocomplete"
+    ></script>
+    <%- include('./partials/scripts') -%>
+  </body>
+</html>

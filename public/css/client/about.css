@@ -1,0 +1,261 @@
+.about {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.about--container {
+  box-sizing: border-box;
+  padding: 2rem;
+  margin-top: 70px;
+}
+.about--container::before {
+  position: absolute;
+  content: "";
+  top: 110vh;
+  left: -66vw;
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/elipse-about.svg");
+  z-index: 4;
+  transform: rotate(180deg);
+}
+.about--container::after {
+  position: absolute;
+  content: "";
+  top: 14vh;
+  right: -66vw;
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(/assets/icons/elipse-about.svg);
+  z-index: 4;
+}
+.about--title {
+  position: relative;
+  margin: 33px auto;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 92.69%;
+  text-transform: uppercase;
+  color: var(--main-blue);
+  text-align: center;
+  z-index: 7;
+}
+.about--image {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  z-index: 7;
+}
+.about--image > img {
+  width: 100%;
+}
+.about--content {
+  position: relative;
+  z-index: 7;
+  width: auto;
+}
+.about--content > p {
+  font-size: 15px;
+  line-height: 121.19%;
+  color: var(--main-gray);
+}
+.about--services {
+  position: relative;
+  box-sizing: border-box;
+}
+.about--card {
+  box-sizing: border-box;
+  position: relative;
+  padding: 2rem;
+  margin-top: 80px;
+  background-color: var(--main-white);
+  border-radius: 9px;
+  text-align: center;
+  z-index: 7;
+}
+.about--card--title {
+  margin: 50px 0 15px 0;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 137%;
+  color: car(--main-blue);
+}
+.about--card--content {
+  margin: 0;
+  font-size: 17px;
+  line-height: 167.06%;
+  color: var(--main-gray);
+  text-align: left;
+  margin-bottom: 25px;
+}
+#buy::before {
+  position: absolute;
+  top: -55px;
+  left: calc(50% - 53px);
+  content: "";
+  width: 106px;
+  height: 97px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/buy.svg");
+}
+#sell::before {
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 60px);
+  content: "";
+  width: 120px;
+  height: 101px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/sell.svg");
+}
+#rent::before {
+  position: absolute;
+  top: -55px;
+  left: calc(50% - 50px);
+  content: "";
+  width: 100px;
+  height: 105px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("/assets/icons/rent.svg");
+}
+.about-mision {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/images/about-mission-mobile.png");
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* .about-mision::before {
+  position: absolute;
+  top: 85px;
+  left: calc(50% - 25px);
+  box-sizing: border-box;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/icons/about-mision-char.svg");
+  background-size: 100%;
+}
+.about-mision > p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 112.19%;
+  color: var(--main-blue);
+  text-align: center;
+}
+.about-mision > p > span {
+  font-weight: 700;
+}
+ */
+@media (min-width: 1023px) {
+  .about {
+    height: 1800px;
+  }
+  .about--container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 60px auto -20px auto;
+  }
+  .about--container::before {
+    position: absolute;
+    content: "";
+    top: 480px;
+    left: -24vw;
+    width: 400px;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(/assets/icons/elipse-about.svg);
+    z-index: 4;
+  }
+  .about--container::after {
+    position: absolute;
+    content: "";
+    top: 0vh;
+    right: -24vw;
+    width: 400px;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(/assets/icons/elipse-about.svg);
+  }
+  .about--title {
+    margin: 50px auto;
+  }
+  .about--image {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 48%;
+    margin-right: auto;
+    height: 430px;
+    overflow: hidden;
+  }
+  .about--image > img {
+    height: 100%;
+    object-fit: contain;
+  }
+  .about--image > img:hover {
+    content: url("/assets/images/about-us-color.png");
+  }
+  .about--content {
+    position: relative;
+    top: -410px;
+    width: 47%;
+    margin-left: 48%;
+  }
+  .about--content > p {
+    margin: 2rem 0;
+    font-size: 20px;
+    line-height: 121.19%;
+  }
+  .about--services {
+    position: relative;
+    top: -350px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .about--card {
+    width: 28%;
+    height: fit-content;
+    filter: drop-shadow(0px 1px 77px rgba(0, 0, 0, 0.2));
+  }
+  .about-mision {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/images/about-mission.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 920px;
+  }
+}
