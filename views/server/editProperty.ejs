@@ -119,11 +119,14 @@
                 <option value="house">Selec Casa</option>
                 <%} else if (property.type === "ground") {%>
                 <option value="ground">Select Terre</option>
-                <%}%>
+                <%} else if (property.type === "chacra") {%>
+                  <option value="chacra">Selec Chacra</option>
+                <%}%> 
                 <option value="apartment">Apartamento</option>
                 <option value="studio_apartment">Monoambiente</option>
                 <option value="house">Casa</option>
                 <option value="ground">Terreno</option>
+                <option value="chacra">Chacra</option>
               </select>
             </div>
             <div
